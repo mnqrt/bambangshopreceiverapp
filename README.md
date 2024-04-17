@@ -85,5 +85,8 @@ This is the place for you to write reflections:
 ### Mandatory (Subscriber) Reflections
 
 #### Reflection Subscriber-1
+1. Saya memilih menggunakan Read Write Lock daripada Mutex karena saya butuh mendukung akses banyak pembaca secara bersamaan terhadap vektor Notifications. Biasanya, vektor itu hanya dibaca tanpa operasi penulisan. Read Write Lock memungkinkan beberapa utas untuk membaca data secara bersamaan, sementara Mutex hanya memperbolehkan satu utas pada satu waktu tertentu.
+
+2. Dalam Rust, fitur lazy_static memungkinkan pembuatan variabel yang berperan sebagai singleton. Ini berarti hanya ada satu contoh dari variabel tersebut dalam program. Berbeda dengan Java, di mana variabel static bisa diubah nilainya. Dengan menggunakan lazy_static, variabel tersebut diinisialisasi hanya sekali dan tetap tidak berubah sepanjang program berjalan, sehingga menjaga keamanan utas saat melakukan pemrograman dengan beberapa utas.
 
 #### Reflection Subscriber-2
